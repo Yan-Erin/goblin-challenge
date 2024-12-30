@@ -28,7 +28,8 @@ const Popup: React.FC<PopupProps> = ({ onClose, onSave, style }) => {
         zIndex: 1000,
       }}
     >
-      <h2 style={{ marginBottom: "15px" }}>Edit Transcription</h2>
+      <h2 className="font-gotham-rounded-medium" 
+      style={{ marginBottom: "15px" }}>Add Transcription</h2>
 
       {/* Transcription Textarea */}
       <textarea

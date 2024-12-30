@@ -73,7 +73,7 @@ const Whiteboards: React.FC<{ data: GraphQLData }> = ({ data }) => {
       setCurrent({ x, y });
     }
   };
-
+  /* Saves absolute px in cvs file */
   const handleSave = (transcription: string, confidence: string) => {
     if (box) {
       const img = document.querySelector("img") as HTMLImageElement;
@@ -156,6 +156,7 @@ const Whiteboards: React.FC<{ data: GraphQLData }> = ({ data }) => {
 
         {/* Finalized Boxes relative */}
         {boxesRelativeForImage.map((b, idx) => {
+          
   // Determine border color based on confidence
   const borderColor =
     b.confidence === "high"
