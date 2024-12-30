@@ -15,6 +15,10 @@ interface GraphQLData {
 }
 
 const Whiteboards: React.FC<{ data: GraphQLData }> = ({ data }) => {
+  if (!data || !data.allWhiteboardsCsv) {
+    return <div>Loading whiteboards...</div>; // Placeholder during SSR
+  }
+
   const whiteboards = data.allWhiteboardsCsv.edges.map((edge) => edge.node);
   const [index, setIndex] = useState(0);
 

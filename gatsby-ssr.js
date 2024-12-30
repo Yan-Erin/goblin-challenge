@@ -1,4 +1,3 @@
-import "./src/styles/global.css"
 import React from "react";
 import { UserProvider } from  "./src/content/userContext";
 

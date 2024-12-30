@@ -2,7 +2,7 @@
 import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby"; 
 import Whiteboards from "./whiteboard";
-import {useUser} from "./userContext";
+import {useUser} from "../content/userContext";
 import Login from "./login";
 interface Whiteboard {
   id: string;
