@@ -1,7 +1,7 @@
 // index.tsx
 import * as React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby"; 
-import Whiteboards from "./whiteboard";
+import Whiteboards from "../components/whiteboard";
 import {useUser} from "../content/userContext";
 import Login from "./login";
 interface Whiteboard {
@@ -21,15 +21,10 @@ const IndexPage: React.FC<PageProps<GraphQLData>> = ({ data }) => {
   const { user } = useUser();
 
   return (
-    <main>
+    <main className="min-h-screen">
       {user ? (
         <div
-         className="min-h-screen"
-          style={{
-            backgroundColor: "#E9FBD6",
-            color: "#334E68",
-            padding: "20px",
-          }}
+         className="min-h-screen bg-[#E9FBD6] text-[#334E68] p-5 min-h-screen"
         >
           <h1 className="font-gotham-rounded-bold text-[31px] tracking-tightest text-center">
             Goblin Challenge

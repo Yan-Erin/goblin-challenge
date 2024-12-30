@@ -52,13 +52,14 @@ const Whiteboards: React.FC<{ data: GraphQLData }> = ({ data }) => {
         const height = Math.abs(y - start.y);
 
         // Determine popup position
-        const popupTop = top + height + 10; // Below the box
-        const popupLeft = left + width + 10; ; // Align with the left edge of the box 
+        const popupTop = top + height + 10; // Align top of popup with below the box
+        const popupLeft = left + width + 10;  // Align left popup with the right edge of the box 
         setPopupPosition({ top: popupTop, left: popupLeft });
 
         setBox({ top, left, width, height });
         setStart(null); // Reset start point
         setCurrent(null); // Reset current point
+
         setShowPopup(true); // Show the popup
     }
   };
@@ -93,6 +94,7 @@ const Whiteboards: React.FC<{ data: GraphQLData }> = ({ data }) => {
         { ...absoluteBox, image: whiteboards[index].id, transcription, confidence },
       ]);
       
+      // This is for the UI box history 
       setBoxesRelativeForImage((prev) => [
         ...prev,
         { ...box,transcription, confidence },
