@@ -5,7 +5,12 @@ module.exports = {
     `./src/components/**/*.{js,jsx,ts,tsx}`,
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'gotham-rounded-bold': ['"Gotham Rounded Bold"', 'sans-serif'],
+        'gotham-rounded-medium': ['"Gotham Rounded Medium"', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
-}
+};
