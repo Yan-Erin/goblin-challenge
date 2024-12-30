@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Popup from "./popup";
+import { useUser } from "../content/userContext";
 
 interface Whiteboard {
   id: string;
@@ -21,7 +22,8 @@ const Whiteboards: React.FC<{ data: GraphQLData }> = ({ data }) => {
 
   const whiteboards = data.allWhiteboardsCsv.edges.map((edge) => edge.node);
   const [index, setIndex] = useState(0);
-
+  const { user } = useUser();
+  
   const [start, setStart] = useState<{ x: number; y: number } | null>(null);
   const [current, setCurrent] = useState<{ x: number; y: number } | null>(null);
   const [box, setBox] = useState<{ top: number; left: number; width: number; height: number } | null>(null);
@@ -118,7 +120,11 @@ const Whiteboards: React.FC<{ data: GraphQLData }> = ({ data }) => {
   };
 
   const downloadBoxes = () => {
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(boxes));
+    const boxesWithUser = boxes.map((box) => ({
+      ...box,
+      user,
+    }));
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(boxesWithUser));
     const downloadAnchor = document.createElement("a");
     downloadAnchor.href = dataStr;
     downloadAnchor.download = "transcript.json";
